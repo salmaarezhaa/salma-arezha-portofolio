@@ -1,0 +1,663 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #FFF8DC;
+    color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Mengatur tampilan link di dalam li */
+.nav-menu li a {
+    text-decoration: none;
+    color: #111;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100vh;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #FFF;
+    z-index: 999;
+}
+
+.h1 {
+    order: 1;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    font-weight: normal;
+    color: #FFF;
+    line-height: 1;
+    margin: 20px 0 45px;
+    letter-spacing: -0.04em;
+}
+
+.h2 {
+    order: 1;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    font-weight: normal;
+    color: #FFF;
+    line-height: 1;
+    margin: 20px 0 45px;
+    letter-spacing: -0.04em;
+}
+
+.ul-navbar.ul-icon {
+    flex-direction: row !important;
+    gap: 15px;                    
+    align-items: center;            
+    margin-bottom: 20px;           
+}
+
+.ul-navbar.ul-icon svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.ul-navbar.ul-icon svg:hover {
+    opacity: 0.45;
+}
+
+.ul-navbar.ul-icon svg a {
+    color: #222; 
+    display: block;
+}
+
+.navbar > img:nth-child(1) {
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.navbar > img:nth-child(2),
+.navbar > img:nth-child(3) {
+    width: 28px;
+    height: 28px;
+}
+
+.navbar > img:nth-child(4) {
+    width: 30px;
+    height: 30px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.ul-navbar {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0;
+    margin: 0;
+}
+
+.li-navbar {
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.06em;
+
+    cursor: pointer;
+
+    transition: opacity 0.3s ease;
+}
+
+.li-navbar:hover {
+    opacity: 0.45;
+}
+
+/* =========================
+   DROPDOWN WORK
+========================= */
+
+.dropdown {
+    display: none;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin: 5px 0 5px 15px;
+}
+
+/* tampil ketika area dropdown di-hover */
+
+.ul-navbar:hover .dropdown {
+    display: flex;
+}
+
+.dropdown a {
+    color: #222;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 0.04em;
+}
+
+.dropdown a:hover {
+    opacity: 0.45;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+/*
+   Navbar = 25%
+   Content = 75%
+*/
+
+body > div:nth-of-type(2) {
+    margin-left: 25%;
+
+    width: 75%;
+
+    padding: 70px 7vw 120px;
+}
+
+/* =========================
+   FOTO UTAMA
+========================= */
+
+body > div:nth-of-type(2) > img:first-child {
+    display: block;
+
+    width: 300%;
+    max-width: 800px;
+    height: 65%;
+    margin: 0 auto 80px;
+    object-fit: cover;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+body > div:nth-of-type(2) h1 {
+    max-width: 900px;
+    margin: 0 auto 35px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(35px, 6vw, 60px);
+    font-weight: normal;
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+}
+
+body > div:nth-of-type(2) p {
+    max-width: 650px;
+    margin: 0 auto 22px;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* =========================
+   CV + LINKEDIN
+========================= */
+
+body > div:nth-of-type(2) > svg:not(:first-child) {
+    width: 50px;
+    height: 50px;
+    margin-right: 30px;
+}
+
+/* =========================
+   WORK CARDS
+========================= */
+
+.work-card {
+    position: relative;
+
+    display: inline-block;
+
+    width: 48%;
+    height: 430px;
+
+    margin-top: 100px;
+    margin-right: 1%;
+
+    overflow: hidden;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    vertical-align: top;
+}
+
+.work-card > img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+/* OVERLAY */
+
+.work-overlay {
+    position: absolute;
+
+    left: 30px;
+    bottom: 30px;
+
+    z-index: 2;
+}
+
+.work-overlay h2 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 42px;
+
+    font-weight: normal;
+
+    letter-spacing: -0.04em;
+}
+
+/* GRADIENT */
+
+.work-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.65),
+        transparent 65%
+    );
+}
+
+/* HOVER */
+
+.work-card:hover img {
+    transform: scale(1.04);
+}
+
+.work-card:hover h2 {
+    text-decoration: underline;
+
+    text-underline-offset: 6px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+body > div:last-child {
+    margin-left: 25%;
+    width: 75%;
+    padding: 60px 7vw;
+    border-top: 1px solid #222;
+}
+
+body > div:last-child h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+
+        padding: 25px;
+
+        flex-direction: row;
+
+        justify-content: space-between;
+    }
+
+    .navbar h1 {
+        margin: 0;
+        font-size: 22px;
+    }
+
+    .ul-navbar {
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .navbar > img {
+        display: none;
+    }
+
+    body > div:nth-of-type(2) {
+        margin-left: 0;
+        width: 100%;
+
+        padding: 50px 7vw;
+    }
+
+    body > div:nth-of-type(2) > img:first-child {
+        width: 100%;
+    }
+
+    body > div:nth-of-type(2) h1 {
+        font-size: 48px;
+    }
+
+    .work-card {
+        width: 100%;
+        height: 380px;
+
+        margin-right: 0;
+        margin-top: 50px;
+    }
+
+    body > div:last-child {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+.work-grid {
+    display: flex;
+    flex-wrap: wrap;     /* Membuat kartu otomatis turun ke bawah jika ruang habis */
+    gap: 30px;           /* Jarak antar kartu */
+    margin-top: 50px;
+}
+
+/* =========================================
+   DESAIN KARTU VISUAL (WORK CARD)
+============================================ */
+.work-card {
+    position: relative;
+    flex: 1 1 calc(50% - 15px); /* Membagi 2 kolom sama besar di desktop */
+    min-width: 300px;           /* Batas minimal lebar kartu agar tidak kekecilan */
+    height: 450px;              /* Tinggi kotak visual kartu */
+    overflow: hidden;
+    color: #fff;                /* Warna teks di dalam kartu menjadi putih */
+    text-decoration: none;
+    background-color: #111;     /* Warna dasar jika gambar lambat dimuat */
+}
+
+/* Mengatur gambar agar memenuhi area kartu */
+.work-card > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;          /* Gambar otomatis terpotong rapi menyesuaikan kotak */
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    opacity: 0.85;              /* Membuat gambar sedikit agak gelap agar teks terbaca */
+}
+
+/* LAPISAN GELAP (OVERLAY GRADIENT) AGAR TEKS MUDAH DIBACA */
+.work-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.2) 60%,
+        transparent 100%
+    );
+    z-index: 1;
+}
+
+/* POSISI TEKS DI ATAS GAMBAR */
+.work-overlay {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    z-index: 2;                 /* Memaksa teks berada di lapisan paling depan */
+}
+
+.work-date {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.work-overlay h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.work-overlay p {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.8;
+    margin: 0 !important;       /* Menghapus margin bawaan paragraf Anda */
+}
+
+/* =========================================
+   EFEK VISUAL SAAT DI-HOVER (DISENTUH MOUSE)
+============================================ */
+.work-card:hover img {
+    transform: scale(1.05);     /* Efek gambar sedikit membesar (zoom-in) */
+    opacity: 0.7;               /* Gambar menjadi sedikit lebih gelap saat disentuh */
+}
+
+.work-card:hover h2 {
+    text-decoration: underline; /* Garis bawah pada judul saat di-hover */
+    text-underline-offset: 4px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    padding: 100px 8%;
+    background: #fff;
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-header {
+    margin-bottom: 60px;
+}
+
+.contact-header h1 {
+    font-size: 48px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: start;
+}
+
+/* IMAGE */
+
+.contact-image img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* TEXT */
+
+.contact-info p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 0 35px;
+}
+
+/* FORM */
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid #222;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-bottom: 2px solid #222;
+}
+
+/* BUTTON */
+
+.contact button {
+    padding: 12px 28px;
+    border: 1px solid #222;
+    background: #222;
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.contact button:hover {
+    background: transparent;
+    color: #222;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .contact {
+        padding: 70px 6%;
+    }
+
+    .contact-header h1 {
+        font-size: 36px;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+}
+
+.a-navbar {
+    color: #111;
+    text-decoration: none;
+}
+
+.a-navbar:visited {
+    color: #111;
+}
+
+.a-navbar:hover {
+    color: #111;
+    text-decoration: none;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.hero-text h2 {
+    font-size: 50px;
+    margin-bottom: 175px;
+    color:#FFF;
+}
+
+.nav-frame {
+    display: inline-block;
+    padding: 8px 18px;
+    margin-right: 15px;
+    border: 3px solid #8f0909;
+    border-radius: 3px;
+    color: #222;
+    text-decoration: none;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+}
+
+.nav-frame:hover {
+    background-color: #222;
+    color: white;
+}
